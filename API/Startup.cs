@@ -35,6 +35,8 @@ namespace API
             });
 
             services.AddControllers();
+            // Solving CORS issue (order isn't important).
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -54,6 +56,9 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Solving CORS issue (order is important).
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
             app.UseAuthorization();
 
