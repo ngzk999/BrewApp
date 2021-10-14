@@ -4,5 +4,7 @@ namespace API.Entities
     {
         public int Id { get; set; }
         public string UserName { get; set; } // must use Pascal Case for this because it will cause less refactoring with Identity
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }
