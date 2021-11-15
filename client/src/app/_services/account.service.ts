@@ -9,6 +9,7 @@ import { User } from '../_models/user';
 })
 export class AccountService {
   baseUrl = 'https://localhost:5001/api/';
+
   // ReplaySubject will emit last / how many previous value when subscribed.
   // (1) because it going to store 1 value only.
   private currentUserSource = new ReplaySubject<User>(1);
